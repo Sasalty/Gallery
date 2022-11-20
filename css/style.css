@@ -1,0 +1,179 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+body{
+	height: 100%;
+	background: linear-gradient(
+		to top, 
+	/* #fffa8d 0%,
+		#fffa8d 50%, */
+		#ffffff 50%,
+		#ffffff 100%
+	);
+	display: flex;
+	justify-content: center;	
+}
+input{
+	display: none;
+}
+.container{
+	width: 100%;
+	text-align: center;
+}
+h1{ cursor: pointer;
+	font-size: 30px;
+	position: relative;
+	margin: 40px 0px;
+}
+h1:hover::before{
+	content:'' ;
+	position: absolute;
+	width: 200px;
+	height: 5px;
+	background-color: #c3c3c3;
+	bottom: -10px;
+	left: 52%; 
+
+	transform: translateX(-60%);
+	animation: animate 5s linear infinite;
+}
+@keyframes animate{
+	
+	
+	100%{
+		width: 200px;
+	}
+	
+}
+.top-content{
+	background-color: rgba(0, 0, 0, 0.41);
+	width: 100%;
+	margin: 0px auto 20px auto;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.40);
+}
+
+h3{
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.30);
+	line-height: 60px;
+	padding: 0px 50px;
+	color: white;
+}
+label{
+	display: inline-block;
+	height: 100%;
+	padding: 0px 5px;
+	margin: 0px 30px;
+	line-height: 60px;
+	font-size: 19px;
+	color: white;
+	cursor: pointer;
+	transition: .7s;
+}
+label:hover{
+	color: rgba(255, 255, 255, 0.75);
+}
+.photo-gallery{
+	
+	position: relative;
+	width: 90%;
+	margin: auto;
+	display: grid;
+	grid-template-columns:repeat(3, 1fr) ;
+	grid-gap: 0px;
+	
+}
+.pic{
+	position: relative;
+	height: 300px;
+	cursor: pointer;
+}
+.pic img{
+	width: 100%;
+	height: 100%;
+	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.40);
+}
+.pic::before{
+	content: "ART GALLERY";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	width: 100%;
+	margin-top: -100px;
+	opacity: .0;
+	transition: .4s;
+	transition-delay: .2s;
+	z-index: 1;
+}
+.pic:after{
+	content: "";
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0);
+	transition: .3s;
+}
+.pic:hover::after{
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.40);
+}
+.pic:hover::before{
+	margin-top: 0px;
+	opacity: 1;
+}
+#check1:checked ~ .container .photo-gallery .pic{
+	opacity: 1;
+	transform: scale(1);
+	position: relative;
+	margin-bottom:1% ;
+}
+#check2:checked ~ .container .photo-gallery .flower{
+	opacity: 1;
+	transform: scale(1);
+	position: relative;
+	margin-bottom:100% ;
+}
+#check2:checked ~ .container .photo-gallery .animal, #check2:checked ~ .container .photo-gallery .city{
+	opacity: 0;
+	transform: scale(0);
+	position: absolute;
+	margin-bottom:100% ;
+}
+
+#check3:checked ~ .container .photo-gallery .animal{
+	opacity: 1;
+	transform: scale(1);
+	position: relative;
+	margin-bottom:100% ;
+}
+#check3:checked ~ .container .photo-gallery .flower, #check3:checked ~ .container .photo-gallery .city{
+	opacity: 0;
+	transform: scale(0);
+	position: absolute;
+	margin-bottom:100% ;
+}
+
+#check4:checked ~ .container .photo-gallery .city{
+	opacity: 1;
+	transform: scale(1);
+	position: relative;
+	margin-bottom:100% ;
+}
+#check4:checked ~ .container .photo-gallery .flower, #check4:checked ~ .container .photo-gallery .animal{
+	opacity: 0;
+	transform: scale(0);
+	position: absolute;
+	margin-bottom:100% ;
+}
